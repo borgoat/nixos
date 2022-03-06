@@ -7,9 +7,14 @@
   home.homeDirectory = "/home/borgoat";
 
   # Packages that should be installed to the user profile.
-  home.packages = [
-    pkgs.gopass
-    pkgs.keepassxc
+  home.packages = with pkgs; [
+    gopass
+    keepassxc
+    jetbrains.clion
+    jetbrains.goland
+    jetbrains.idea-ultimate
+    jetbrains.pycharm-professional
+    jetbrains.webstorm
   ];
 
   # This value determines the Home Manager release that your
