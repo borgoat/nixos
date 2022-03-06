@@ -158,5 +158,7 @@
     };
   };
 
+  services.tailscale.enable = true;
+
 }
 
