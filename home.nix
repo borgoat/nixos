@@ -10,6 +10,8 @@
   home.packages = with pkgs; [
     android-tools
     android-studio
+    gnomeExtensions.espresso
+    gnomeExtensions.gsconnect
     gopass
     keepassxc
     jetbrains.clion
@@ -65,7 +67,22 @@
   # TODO Understand how to manage extensions: https://nixos.wiki/wiki/Visual_Studio_Code
   programs.vscode.enable = true;
 
-  services.caffeine.enable = true;
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
+      ];
+    };
+  };
 
 }
 
