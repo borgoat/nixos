@@ -10,6 +10,13 @@
       ./hardware-configuration.nix
     ];
 
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+   };
+
   # Use the latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
