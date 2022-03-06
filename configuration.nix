@@ -93,6 +93,7 @@
     extraGroups = [
     "wheel"      # Enable ‘sudo’ for the user.
     "syncthing"  # Allow using syncthing.
+    "docker"
     ];
 
     openssh.authorizedKeys.keys = [
@@ -166,6 +167,11 @@
   };
 
   services.tailscale.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+  };
 
 }
 
