@@ -45,5 +45,7 @@
     userEmail = "giorgio@azzinna.ro";
   };
 
+  services.caffeine.enable = true;
+
 }
 

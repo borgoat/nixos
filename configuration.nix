@@ -94,6 +94,10 @@
     "wheel"      # Enable ‘sudo’ for the user.
     "syncthing"  # Allow using syncthing.
     ];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGPC0FZMTGMMkXurkSXD9Pgng8quo12QAZPFUV5lLmTC borgio@manjaropad"
+    ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -115,7 +119,10 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
