@@ -62,6 +62,9 @@
     ];
   };
 
+  # TODO Understand how to manage extensions: https://nixos.wiki/wiki/Visual_Studio_Code
+  programs.vscode.enable = true;
+
   services.caffeine.enable = true;
 
 }
