@@ -6,6 +6,12 @@
   home.username = "borgoat";
   home.homeDirectory = "/home/borgoat";
 
+  # Packages that should be installed to the user profile.
+  home.packages = [
+    pkgs.gopass
+    pkgs.keepassxc
+  ];
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -18,5 +24,21 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Command-line JSON processor
+  programs.jq.enable = true;
+
+  # When firefox won't work
+  programs.chromium = {
+    enable = true;
+    # TODO Extensions
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "Giorgio Azzinnaro";
+    userEmail = "giorgio@azzinna.ro";
+  };
+
 }
 

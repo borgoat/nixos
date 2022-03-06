@@ -24,6 +24,11 @@
       preLVM = false;
     };
 
+    devices."oldhome" = {
+      device = "/dev/disk/by-uuid/cfcd3b95-5885-4bd5-ac94-1a91f9f3daaa";
+      preLVM = true;
+    };
+
     reusePassphrases = true;
   };
 
@@ -41,6 +46,12 @@
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/43cf2c7f-a3db-42c6-a697-0b770c01f0c5";
       fsType = "ext4";
+    };
+
+  fileSystems."/oldhome" =
+    { device = "dev/disk/by-uuid/1395cb5d-12bf-4a0e-99d6-137bf5fad22c";
+      fsType = "ext4";
+      options = [ "ro" ];
     };
 
 

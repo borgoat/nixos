@@ -90,7 +90,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.borgoat = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+    "wheel"      # Enable ‘sudo’ for the user.
+    "syncthing"  # Allow using syncthing.
+    ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -130,6 +133,30 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
+
+  services.syncthing = {
+    enable = true;
+
+    user = "borgoat";
+    dataDir = "/home/borgoat/Syncthing";
+    configDir = "/home/borgoat/Syncthing/.config/syncthing";
+
+    devices = {
+      "thinkpad" = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; };
+    };
+
+    folders = {
+      "Keepass" = {
+        id = "jgmne-sxjvp";
+        path = "/home/borgoat/Keepass";
+	devices = [ "thinkpad" ];
+	versioning = {
+	  type = "simple";
+	  params.keep = "10";
+	};
+      };
+    };
+  };
 
 }
 
