@@ -43,6 +43,21 @@
     enable = true;
     userName = "Giorgio Azzinnaro";
     userEmail = "giorgio@azzinna.ro";
+
+    includes = [
+      {
+        condition = "gitdir:~/Workspace/*/yeekatee/";
+        contents = {
+          user = {
+            email = "giorgio.azzinnaro@yeekatee.com";
+          };
+
+          core = {
+            sshCommand = "ssh -i ~/.ssh/id_ed25519-yeekatee";
+          };
+        };
+      }
+    ];
   };
 
   services.caffeine.enable = true;
