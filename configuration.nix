@@ -155,13 +155,14 @@
 
     devices = {
       "thinkpad" = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; };
+      "MI 9" = { id = "OMN5B47-WMCPSPZ-UBHH4UU-OFPMGRU-XMFCQQB-CXKF2IF-WYHLVX5-5TQGZAT"; };
     };
 
     folders = {
       "Keepass" = {
         id = "jgmne-sxjvp";
         path = "/home/borgoat/Keepass";
-	devices = [ "thinkpad" ];
+	devices = [ "thinkpad" "MI 9" ];
 	versioning = {
 	  type = "simple";
 	  params.keep = "10";
