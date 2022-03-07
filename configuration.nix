@@ -90,10 +90,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.borgoat = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [
-    "wheel"      # Enable ‘sudo’ for the user.
-    "syncthing"  # Allow using syncthing.
-    "docker"
+      "wheel"      # Enable ‘sudo’ for the user.
+      "syncthing"  # Allow using syncthing.
+      "docker"
+      "libvirtd"
     ];
 
     openssh.authorizedKeys.keys = [
@@ -116,6 +118,8 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  programs.zsh.enable = true;
 
   # List services that you want to enable:
 
@@ -168,9 +172,13 @@
 
   services.tailscale.enable = true;
 
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false;
+  virtualisation = {
+    libvirtd.enable = true;
+
+    docker = {
+      enable = true;
+      enableOnBoot = false;
+    };
   };
 
   fonts.fonts = with pkgs; [
