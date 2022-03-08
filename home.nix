@@ -87,7 +87,7 @@
     plugins = [
       {
         name = "powerlevel10k-config";
-        src = pkgs.lib.cleanSource ./home;
+        src = pkgs.lib.cleanSource ./zsh;
         file = "p10k.zsh";
       }
     ];
