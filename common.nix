@@ -163,6 +163,12 @@
 	  params.keep = "10";
 	};
       };
+
+      "ObsidianVault" = {
+        id = "nkefu-w3rpy";
+	path = "/home/borgoat/Documents/ObsidianVault";
+	devices = [ "tower" "thinkpad" "MI 9" "macbook" "nyx" ];
+      };
     };
   };
 
