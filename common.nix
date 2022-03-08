@@ -99,6 +99,7 @@
     git
     magic-wormhole
     neovim
+    file  # A program that shows the type of files
     firefox
   ];
 
@@ -148,13 +149,14 @@
       "tower" = { id = "EHZD7HW-W5J34RL-NCS6AJ3-SO4CXOI-UDZYLQ6-QHX4A6B-GRHDXCH-ZLZKZQK"; };
       "thinkpad" = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; };
       "MI 9" = { id = "OMN5B47-WMCPSPZ-UBHH4UU-OFPMGRU-XMFCQQB-CXKF2IF-WYHLVX5-5TQGZAT"; };
+      "macbook" = { id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ"; };
     };
 
     folders = {
       "Keepass" = {
         id = "jgmne-sxjvp";
         path = "/home/borgoat/Keepass";
-	devices = [ "thinkpad" "MI 9" ];
+	devices = [ "tower" "thinkpad" "MI 9" "macbook" ];
 	versioning = {
 	  type = "simple";
 	  params.keep = "10";
