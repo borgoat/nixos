@@ -83,6 +83,14 @@
         { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
       ];
     };
+
+    plugins = [
+      {
+        name = "powerlevel10k-config";
+        src = pkgs.lib.cleanSource ./home;
+        file = "p10k.zsh";
+      }
+    ];
   };
 
 }
