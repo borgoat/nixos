@@ -49,8 +49,6 @@
     # Keyboards
     layout = "us,it";
   };
-
-
   
 
   # Configure keymap in X11
@@ -58,7 +56,10 @@
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.brlaser ];
+  };
 
   # Enable sound.
   sound.enable = false;
@@ -103,6 +104,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    gnome3.gnome-tweaks
     magic-wormhole
     neovim
     file  # A program that shows the type of files
@@ -176,6 +178,18 @@
 	devices = [ "tower" "thinkpad" "MI 9" "macbook" "nyx" ];
       };
     };
+  };
+
+  networking.firewall = {
+    enable = true;
+
+    allowedTCPPorts = [
+      22000  # Syncthing
+    ];
+
+    allowedUDPPorts = [
+      22000  # Syncthing
+    ];
   };
 
   services.tailscale.enable = true;
