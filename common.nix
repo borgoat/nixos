@@ -93,6 +93,7 @@
       "syncthing"  # Allow using syncthing.
       "docker"
       "libvirtd"
+      "wireshark"
     ];
 
     openssh.authorizedKeys.keys = [
@@ -109,6 +110,7 @@
     neovim
     file  # A program that shows the type of files
     firefox
+    wireshark
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

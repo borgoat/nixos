@@ -19,6 +19,8 @@
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
     jetbrains.webstorm
+    signal-desktop
+    zoom-us
   ];
 
   # This value determines the Home Manager release that your
