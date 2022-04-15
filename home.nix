@@ -10,11 +10,14 @@
   home.packages = with pkgs; [
     android-tools
     android-studio
+    duf
+    dust
     erlang
     elixir
     gnomeExtensions.espresso
     gnomeExtensions.gsconnect
     gopass
+    hexyl
     keepassxc
     jetbrains.clion
     jetbrains.goland
@@ -52,6 +55,14 @@
     userName = "Giorgio Azzinnaro";
     userEmail = "giorgio@azzinna.ro";
 
+    difftastic.enable = true;
+
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+    };
+
     includes = [
       {
         condition = "gitdir:~/Workspace/*/yeekatee/";
@@ -75,6 +86,7 @@
     enable = true;
     clock24 = true;
     terminal = "screen-256color";
+    sensibleOnTop = true;
   };
 
   programs.zsh = {
@@ -97,7 +109,23 @@
     ];
   };
 
+  # A fast cd command that learns your habits
   programs.zoxide.enable = true;
+
+  # The next gen ls command
+  programs.lsd.enable = true;
+
+  # A cat(1) clone with syntax highlighting and Git integration
+  programs.bat.enable = true;
+
+  # A command-line fuzzy finder written in Go
+  programs.fzf.enable = true;
+
+  # An upgraded ctrl-r for Bash whose history results make sense for what you're working on right now
+  programs.mcfly = {
+    enable = true;
+    enableFuzzySearch = true;
+  };
 
 }
 

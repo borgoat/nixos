@@ -10,6 +10,11 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
    };
 
   # Use the latest kernel
