@@ -10,6 +10,8 @@
   home.packages = with pkgs; [
     android-tools
     android-studio
+    erlang
+    elixir
     gnomeExtensions.espresso
     gnomeExtensions.gsconnect
     gopass
@@ -94,6 +96,8 @@
       }
     ];
   };
+
+  programs.zoxide.enable = true;
 
 }
 
