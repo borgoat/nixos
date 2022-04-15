@@ -11,7 +11,7 @@
     android-tools
     android-studio
     duf
-    dust
+    du-dust
     erlang
     elixir
     gnomeExtensions.espresso
