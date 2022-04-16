@@ -10,14 +10,16 @@
   home.packages = with pkgs; [
     android-tools
     android-studio
-    duf
-    du-dust
+    duf  # A better df alternative
+    du-dust  # A more intuitive version of du in rust
     erlang
     elixir
+    file  # A program that shows the type of files
+    firefox
     gnomeExtensions.espresso
     gnomeExtensions.gsconnect
     gopass
-    hexyl
+    hexyl  # A command-line hex viewer
     keepassxc
     jetbrains.clion
     jetbrains.goland

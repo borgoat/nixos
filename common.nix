@@ -111,11 +111,7 @@
   environment.systemPackages = with pkgs; [
     git
     gnome3.gnome-tweaks
-    magic-wormhole
     neovim
-    file  # A program that shows the type of files
-    firefox
-    wireshark
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
