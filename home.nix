@@ -113,7 +113,10 @@
   programs.zoxide.enable = true;
 
   # The next gen ls command
-  programs.lsd.enable = true;
+  programs.lsd = {
+    enable = true;
+    enableAliases = true;
+  };
 
   # A cat(1) clone with syntax highlighting and Git integration
   programs.bat.enable = true;
