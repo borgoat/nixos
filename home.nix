@@ -7,28 +7,7 @@
   home.homeDirectory = "/home/borgoat";
 
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    android-tools
-    android-studio
-    duf  # A better df alternative
-    du-dust  # A more intuitive version of du in rust
-    erlang
-    elixir
-    file  # A program that shows the type of files
-    firefox
-    gnomeExtensions.espresso
-    gnomeExtensions.gsconnect
-    gopass
-    hexyl  # A command-line hex viewer
-    keepassxc
-    jetbrains.clion
-    jetbrains.goland
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
-    jetbrains.webstorm
-    signal-desktop
-    zoom-us
-  ];
+  # home.packages = with pkgs; [];
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

@@ -109,9 +109,25 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    android-studio
+    android-tools
+    du-dust  # A more intuitive version of du in rust
+    duf  # A better df alternative
+    file  # A program that shows the type of files
+    firefox
     git
     gnome3.gnome-tweaks
+    gnomeExtensions.espresso
+    hexyl  # A command-line hex viewer
+    jetbrains.clion
+    jetbrains.goland
+    jetbrains.idea-ultimate
+    jetbrains.pycharm-professional
+    jetbrains.webstorm
+    keepassxc
     neovim
+    signal-desktop
+    zoom-us
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
