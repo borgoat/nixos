@@ -167,17 +167,18 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
 
+  services.lorri.enable = true;
+
   services.syncthing = {
     enable = true;
 
     user = "borgoat";
-    dataDir = "/home/borgoat/Syncthing";
-    configDir = "/home/borgoat/Syncthing/.config/syncthing";
+    configDir = "/home/borgoat/.config/syncthing";
 
     devices = {
-      "tower" = { id = "EHZD7HW-W5J34RL-NCS6AJ3-SO4CXOI-UDZYLQ6-QHX4A6B-GRHDXCH-ZLZKZQK"; };
+      "tower" = { id = "PPTQPL4-FBVHDON-LQZ7NXU-ZHL64FA-C6A6CCR-2BNL5JO-CI3LCE6-CQHB4QJ"; };
       "thinkpad" = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; };
-      "MI 9" = { id = "OMN5B47-WMCPSPZ-UBHH4UU-OFPMGRU-XMFCQQB-CXKF2IF-WYHLVX5-5TQGZAT"; };
+      "MI 9" = { id = "VZ6WQZ4-IPLJA7R-OYNX4KB-WIHB256-NU5LLV5-IM2NPTV-DFC5UZG-VWWLLQK"; };
       "macbook" = { id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ"; };
       "nyx" = { id = "QRZ3IRB-PDIR7XZ-VCEFIZQ-QF5O32O-OEVZJIC-BHOVXTL-WQGRFXH-XIVFKAK"; };
     };
@@ -193,10 +194,14 @@
 	};
       };
 
-      "ObsidianVault" = {
-        id = "nkefu-w3rpy";
-	path = "/home/borgoat/Documents/ObsidianVault";
-	devices = [ "tower" "thinkpad" "MI 9" "macbook" "nyx" ];
+      "Syncthing" = {
+        id = "yi9hu-m36kc";
+	path = "/home/borgoat/Documents/Syncthing";
+	devices = [ "tower" "thinkpad" "MI 9" "macbook" ];
+	versioning = {
+	  type = "simple";
+	  params.keep = "10";
+	};
       };
     };
   };

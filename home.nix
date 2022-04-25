@@ -114,5 +114,7 @@
   # A cross-platform graphical process/system monitor with a customizable interface
   programs.bottom.enable = true;
 
+  programs.direnv.enable = true;
+
 }
 
