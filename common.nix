@@ -209,6 +209,9 @@
   networking.firewall = {
     enable = true;
 
+    # Allow all traffic coming from Tailscale
+    trustedInterfaces = [ "tailscale0" ];
+
     allowedTCPPorts = [
       22000  # Syncthing
     ];
