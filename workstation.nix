@@ -48,24 +48,30 @@
   environment.systemPackages = with pkgs; [
     android-studio
     firefox
+    gimp
     gnome3.gnome-tweaks
     gnomeExtensions.espresso
+    inkscape
     jetbrains.clion
     jetbrains.goland
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
     jetbrains.webstorm
     keepassxc
+    libreoffice-fresh
+    lutris
+    scribusUnstable
     signal-desktop
     zoom-us
   ];
 
   fonts.fonts = with pkgs; [
-    noto-fonts
+    corefonts
     fira-code
     fira-code-symbols
     jetbrains-mono
     meslo-lgs-nf
+    noto-fonts
   ];
 
 }
