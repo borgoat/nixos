@@ -47,6 +47,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     android-studio
+    ckan
     firefox
     gimp
     gnome3.gnome-tweaks
@@ -62,17 +63,22 @@
     lutris
     scribusUnstable
     signal-desktop
+    teams
     zoom-us
   ];
 
-  fonts.fonts = with pkgs; [
-    corefonts
-    fira-code
-    fira-code-symbols
-    jetbrains-mono
-    meslo-lgs-nf
-    noto-fonts
-  ];
+  fonts = {
+    fonts = with pkgs; [
+      corefonts
+      fira-code
+      fira-code-symbols
+      jetbrains-mono
+      meslo-lgs-nf
+      noto-fonts
+    ];
+
+    fontDir.enable = true;
+  };
 
 }
 
