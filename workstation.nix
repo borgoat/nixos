@@ -61,7 +61,7 @@
     keepassxc
     libreoffice-fresh
     lutris
-    scribusUnstable
+    scribus
     signal-desktop
     teams
     zoom-us
