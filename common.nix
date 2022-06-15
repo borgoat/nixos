@@ -77,6 +77,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     android-tools
+    dogdns
     du-dust  # A more intuitive version of du in rust
     duf  # A better df alternative
     file  # A program that shows the type of files
