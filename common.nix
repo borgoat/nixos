@@ -83,8 +83,18 @@
     file  # A program that shows the type of files
     git
     hexyl  # A command-line hex viewer
-    neovim
   ];
+
+  programs.neovim = {
+    enable = true;
+    configure = {
+      packages.myPlugins = with pkgs.vimPlugins; {
+        start = [
+          (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
+        ];
+      };
+    };
+  };
 
   programs.adb.enable = true;
 
