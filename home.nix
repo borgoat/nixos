@@ -115,6 +115,8 @@
   programs.bottom.enable = true;
 
   programs.direnv.enable = true;
+  
+  programs.go.enable = true;
 
 }
 
