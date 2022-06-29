@@ -5,9 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  # Graphical boot screen
-  boot.plymouth.enable = true;
-
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
