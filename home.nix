@@ -108,7 +108,7 @@
   # An upgraded ctrl-r for Bash whose history results make sense for what you're working on right now
   programs.mcfly = {
     enable = true;
-    enableFuzzySearch = true;
+    fuzzySearchFactor = 2;
   };
 
   # A cross-platform graphical process/system monitor with a customizable interface
