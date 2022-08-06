@@ -26,10 +26,10 @@
   programs.jq.enable = true;
 
   # When firefox won't work
-  programs.chromium = {
-    enable = true;
-    # TODO Extensions
-  };
+  # programs.chromium = {
+  #  enable = true;
+  #  # TODO Extensions
+  # };
 
   programs.git = {
     enable = true;
@@ -61,7 +61,7 @@
   };
 
   # TODO Understand how to manage extensions: https://nixos.wiki/wiki/Visual_Studio_Code
-  programs.vscode.enable = true;
+  # programs.vscode.enable = true;
 
   programs.tmux = {
     enable = true;

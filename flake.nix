@@ -7,10 +7,10 @@
   };
 
   outputs = { self, nixpkgs, home-manager }: {
-    nixosConfigurations.tower = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+    nixosConfigurations.content-pigeon = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
       modules = [
-        ./machines/tower/configuration.nix
+        ./machines/content-pigeon/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

@@ -20,9 +20,10 @@
   # Use the latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # TODO machine-specific config
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
@@ -48,10 +49,10 @@
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.brlaser ];
-  };
+  # services.printing = {
+  #   enable = true;
+  #   drivers = [ pkgs.brlaser ];
+  # };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -83,6 +84,7 @@
     file  # A program that shows the type of files
     git
     hexyl  # A command-line hex viewer
+    wireguard-tools
   ];
 
   programs.neovim = {
@@ -142,18 +144,16 @@
     configDir = "/home/borgoat/.config/syncthing";
 
     devices = {
-      "tower" = { id = "PPTQPL4-FBVHDON-LQZ7NXU-ZHL64FA-C6A6CCR-2BNL5JO-CI3LCE6-CQHB4QJ"; };
+      "content-pigeon" = { id = "JMWSW2I-4ZR65J2-2Y72NYU-EVOEBOC-D7623KK-TDRAHSF-JP7RZRP-4VVVYQ5"; };
       "thinkpad" = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; };
-      "MI 9" = { id = "VZ6WQZ4-IPLJA7R-OYNX4KB-WIHB256-NU5LLV5-IM2NPTV-DFC5UZG-VWWLLQK"; };
       "macbook" = { id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ"; };
-      "nyx" = { id = "QRZ3IRB-PDIR7XZ-VCEFIZQ-QF5O32O-OEVZJIC-BHOVXTL-WQGRFXH-XIVFKAK"; };
     };
 
     folders = {
       "Keepass" = {
         id = "jgmne-sxjvp";
         path = "/home/borgoat/Keepass";
-	devices = [ "tower" "thinkpad" "MI 9" "macbook" ];
+	devices = [ "content-pigeon" "thinkpad" "macbook" ];
 	versioning = {
 	  type = "simple";
 	  params.keep = "10";
@@ -163,7 +163,7 @@
       "Syncthing" = {
         id = "yi9hu-m36kc";
 	path = "/home/borgoat/Documents/Syncthing";
-	devices = [ "tower" "thinkpad" "MI 9" "macbook" ];
+	devices = [ "content-pigeon" "thinkpad" "macbook" ];
 	versioning = {
 	  type = "simple";
 	  params.keep = "10";
