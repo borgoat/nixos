@@ -192,14 +192,13 @@
 
   services.tailscale.enable = true;
 
-  virtualisation = {
-    libvirtd.enable = true;
-
-    docker = {
-      enable = true;
-      enableOnBoot = false;
-    };
-  };
+  # virtualisation = {
+  #   libvirtd.enable = true;
+  #   docker = {
+  #     enable = true;
+  #     enableOnBoot = false;
+  #   };
+  # };
 
   services.jellyfin.enable = true;
 

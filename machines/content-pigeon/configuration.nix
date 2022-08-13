@@ -25,10 +25,14 @@
 	privateKeyFile = "/root/wg-keys/private";
 
 	peers = [
-	{ # Mikrotik Pumiro
-	  publicKey = "qSpmTq/LUQMclxY0EXULYkYYr0pYldOYp2KYCuecg38=";
-	  allowedIPs = [ "192.168.199.9/32" ];
-	}
+	  { # Mikrotik Pumiro
+	    publicKey = "qSpmTq/LUQMclxY0EXULYkYYr0pYldOYp2KYCuecg38=";
+	    allowedIPs = [
+	      "192.168.199.0/24"
+	      "192.168.99.0/24"
+	    ];
+	    persistentKeepalive = 25;
+	  }
 	];
       };
     };
@@ -37,3 +41,4 @@
   boot.cleanTmpDir = true;
   zramSwap.enable = true;
 }
+
