@@ -16,8 +16,6 @@
     devices = [ "/dev/sda" "/dev/sdb" ];
   };
 
-  networking.hostName = "casual-gator";
-
   # The mdadm RAID1s were created with 'mdadm --create ... --homehost=hetzner',
   # but the hostname for each machine may be different, and mdadm's HOMEHOST
   # setting defaults to '<system>' (using the system hostname).
@@ -37,27 +35,58 @@
   # available there.
   boot.initrd.services.swraid.mdadmConf = config.environment.etc."mdadm.conf".text;
 
-  # Network (Hetzner uses static IP assignments, and we don't use DHCP here)
-  networking.useDHCP = false;
-  networking.interfaces."enp0s31f6".ipv4.addresses = [
-    {
-      address = "138.201.87.57";
-      # FIXME: The prefix length is commonly, but not always, 24.
-      # You should check what the prefix length is for your server
-      # by inspecting the netmask in the "IPs" tab of the Hetzner UI.
-      # For example, a netmask of 255.255.255.0 means prefix length 24
-      # (24 leading 1s), and 255.255.255.192 means prefix length 26
-      # (26 leading 1s).
-      prefixLength = 24;
-    }
-  ];
-  networking.interfaces."enp0s31f6".ipv6.addresses = [
-    {
-      address = "2a01:4f8:172:22e7::1";
-      prefixLength = 64;
-    }
-  ];
-  networking.defaultGateway = "138.201.87.1";
-  networking.defaultGateway6 = { address = "fe80::1"; interface = "enp0s31f6"; };
-  networking.nameservers = [ "8.8.8.8" ];
+  networking = {
+    hostName = "casual-gator";
+
+    # Network (Hetzner uses static IP assignments, and we don't use DHCP here)
+    useDHCP = false;
+    interfaces."enp0s31f6".ipv4.addresses = [
+      {
+        address = "138.201.87.57";
+        prefixLength = 26;
+      }
+    ];
+    interfaces."enp0s31f6".ipv6.addresses = [
+      {
+        address = "2a01:4f8:172:22e7::1";
+        prefixLength = 64;
+      }
+    ];
+    defaultGateway = "138.201.87.1";
+    defaultGateway6 = { address = "fe80::1"; interface = "enp0s31f6"; };
+    nameservers = [ "8.8.8.8" ];
+
+    nat = {
+      enable = true;
+      externalInterface = "enp0s31f6";
+      internalInterfaces = [ "wg0" ];
+    };
+
+    firewall = {
+      checkReversePath = "loose"; # for tailscale exit node
+      allowedUDPPorts = [ 51820 ];
+      trustedInterfaces = [ "wg0" ];
+    };
+
+    wireguard.interfaces = {
+      wg0 = {
+        ips = [ "192.168.199.2/24" ];
+        listenPort = 51820;
+
+        privateKeyFile = "/root/wg-keys/private";
+
+        peers = [
+          { # Mikrotik Pumiro
+            publicKey = "qSpmTq/LUQMclxY0EXULYkYYr0pYldOYp2KYCuecg38=";
+            allowedIPs = [
+              "192.168.199.9/32"
+              "192.168.99.0/24"
+            ];
+            persistentKeepalive = 25;
+          }
+        ];
+      };
+    };
+  };
+
 }

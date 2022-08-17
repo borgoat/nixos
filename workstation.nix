@@ -46,6 +46,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    android-tools
     android-studio
     ckan
     firefox
@@ -66,6 +67,18 @@
     teams
     zoom-us
   ];
+
+  programs.adb.enable = true;
+
+  services.lorri.enable = true;
+
+  virtualisation = {
+    libvirtd.enable = true;
+    docker = {
+      enable = true;
+      enableOnBoot = false;
+    };
+  };
 
   fonts = {
     fonts = with pkgs; [

@@ -47,12 +47,6 @@
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
-  # Enable CUPS to print documents.
-  # services.printing = {
-  #   enable = true;
-  #   drivers = [ pkgs.brlaser ];
-  # };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -77,7 +71,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    android-tools
     dogdns
     du-dust  # A more intuitive version of du in rust
     duf  # A better df alternative
@@ -97,8 +90,6 @@
       };
     };
   };
-
-  programs.adb.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -135,8 +126,6 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
 
-  services.lorri.enable = true;
-
   services.syncthing = {
     enable = true;
 
@@ -144,9 +133,10 @@
     configDir = "/home/borgoat/.config/syncthing";
 
     devices = {
+      "casual-gator"   = { id = "CJMWOSW-VBZCFUL-ARN7LPD-SNZWWRM-IBZHZZA-EBBXZZV-FM4HEPJ-63DAZA5"; };
       "content-pigeon" = { id = "JMWSW2I-4ZR65J2-2Y72NYU-EVOEBOC-D7623KK-TDRAHSF-JP7RZRP-4VVVYQ5"; };
-      "thinkpad" = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; };
-      "macbook" = { id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ"; };
+      "thinkpad"       = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; };
+      "macbook"        = { id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ"; };
     };
 
     folders = {
@@ -163,7 +153,7 @@
       "Syncthing" = {
         id = "yi9hu-m36kc";
 	path = "/home/borgoat/Documents/Syncthing";
-	devices = [ "content-pigeon" "thinkpad" "macbook" ];
+	devices = [ "casual-gator" "content-pigeon" "thinkpad" "macbook" ];
 	versioning = {
 	  type = "simple";
 	  params.keep = "10";
@@ -192,15 +182,6 @@
 
   services.tailscale.enable = true;
 
-  # virtualisation = {
-  #   libvirtd.enable = true;
-  #   docker = {
-  #     enable = true;
-  #     enableOnBoot = false;
-  #   };
-  # };
-
   services.jellyfin.enable = true;
-
 }
 
