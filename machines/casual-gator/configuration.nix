@@ -35,6 +35,8 @@
   # available there.
   boot.initrd.services.swraid.mdadmConf = config.environment.etc."mdadm.conf".text;
 
+  services.jellyfin.enable = true;
+
   networking = {
     hostName = "casual-gator";
 
@@ -64,7 +66,17 @@
 
     firewall = {
       checkReversePath = "loose"; # for tailscale exit node
-      allowedUDPPorts = [ 51820 ];
+
+      allowedTCPPorts = [
+        8096   # Jellyfin
+      ];
+
+      allowedUDPPorts = [
+        1900   # Jellyfin
+        7359   # Jellyfin
+	51820  # Wireguard
+      ];
+
       trustedInterfaces = [ "wg0" ];
     };
 

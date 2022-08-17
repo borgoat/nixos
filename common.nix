@@ -170,18 +170,13 @@
 
     allowedTCPPorts = [
       22000  # Syncthing
-      8096   # Jellyfin
     ];
 
     allowedUDPPorts = [
       22000  # Syncthing
-      1900   # Jellyfin
-      7359   # Jellyfin
     ];
   };
 
   services.tailscale.enable = true;
-
-  services.jellyfin.enable = true;
 }
 
