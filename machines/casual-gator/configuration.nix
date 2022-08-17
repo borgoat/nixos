@@ -70,12 +70,19 @@
 
     wireguard.interfaces = {
       wg0 = {
-        ips = [ "192.168.199.2/24" ];
+        ips = [ "192.168.199.2/32" ];
         listenPort = 51820;
 
         privateKeyFile = "/root/wg-keys/private";
 
         peers = [
+          { # content-pigeon
+	    endpoint = "152.67.65.64:51820";
+            publicKey = "21z7T6a7DQbD8U8BA4phb+8qzOclEe8AeHZVtdJJAEQ=";
+            allowedIPs = [
+              "192.168.199.1/32"
+            ];
+          }
           { # Mikrotik Pumiro
             publicKey = "qSpmTq/LUQMclxY0EXULYkYYr0pYldOYp2KYCuecg38=";
             allowedIPs = [
