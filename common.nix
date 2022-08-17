@@ -7,9 +7,8 @@
 {
   nix = {
     package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+
+    settings.experimental-features = [ "nix-command" "flakes" ];
 
     gc = {
       automatic = true;

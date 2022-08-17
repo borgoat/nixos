@@ -7,6 +7,18 @@
   };
 
   outputs = { self, nixpkgs, home-manager }: {
+    nixosConfigurations.casual-gator = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./machines/casual-gator/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.borgoat = import ./home.nix;
+        }
+      ];
+    };
     nixosConfigurations.content-pigeon = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
