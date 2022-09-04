@@ -44,14 +44,14 @@
             ];
             persistentKeepalive = 25;
           }
-          # { # Mikrotik Olgiate
-          #   publicKey = "";
-          #   allowedIPs = [
-          #     "192.168.199.8/32"
-          #     "192.168.88.0/24"
-          #   ];
-          #   persistentKeepalive = 25;
-          # }
+          { # Mikrotik Olgiate
+            publicKey = "xmRwxwC8DJgyLH6DXnrMfWnpVxn3hA73mocTUMQZriY=";
+            allowedIPs = [
+              "192.168.199.8/32"
+              "192.168.88.0/24"
+            ];
+            persistentKeepalive = 25;
+          }
         ];
       };
     };
