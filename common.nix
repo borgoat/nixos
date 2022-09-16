@@ -66,6 +66,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGPC0FZMTGMMkXurkSXD9Pgng8quo12QAZPFUV5lLmTC borgio@manjaropad"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ66QbvxQYP+BiN2AVZfJ4SbCZkajDKpqWJYPDTpiFKt termux@mi9"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWMViPgAGd1wSRb8fOJHMBcVo/uTw4OcQwI0hx0mupr borgoat@macbook"
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJJc4xpI+WnsdSHslBMqjuRl7p4ffyxpYhj4LtZUITtpAAAABHNzaDo= borgio@manjaropad"
     ];
   };
 
