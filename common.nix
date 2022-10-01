@@ -137,30 +137,9 @@
     devices = {
       "casual-gator"   = { id = "CJMWOSW-VBZCFUL-ARN7LPD-SNZWWRM-IBZHZZA-EBBXZZV-FM4HEPJ-63DAZA5"; };
       "content-pigeon" = { id = "JMWSW2I-4ZR65J2-2Y72NYU-EVOEBOC-D7623KK-TDRAHSF-JP7RZRP-4VVVYQ5"; };
-      "thinkpad"       = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; };
       "macbook"        = { id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ"; };
-    };
-
-    folders = {
-      "Keepass" = {
-        id = "jgmne-sxjvp";
-        path = "/home/borgoat/Keepass";
-	devices = [ "content-pigeon" "thinkpad" "macbook" ];
-	versioning = {
-	  type = "simple";
-	  params.keep = "10";
-	};
-      };
-
-      "Syncthing" = {
-        id = "yi9hu-m36kc";
-	path = "/home/borgoat/Documents/Syncthing";
-	devices = [ "casual-gator" "content-pigeon" "thinkpad" "macbook" ];
-	versioning = {
-	  type = "simple";
-	  params.keep = "10";
-	};
-      };
+      "thinkpad"       = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; autoAcceptFolders = true; };
+      "macbook-pro"    = { id = "OZWTJVP-WYWYMZE-JBX7IY4-V52W42E-66HTYPO-C7IDAC3-WG3F6AR-WJHBCQR"; autoAcceptFolders = true; };
     };
   };
 
