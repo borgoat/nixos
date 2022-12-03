@@ -35,6 +35,8 @@
   # available there.
   boot.initrd.services.swraid.mdadmConf = config.environment.etc."mdadm.conf".text;
 
+  services.paperless.enable = true;
+
   services.jellyfin.enable = true;
 
   networking = {
