@@ -19,11 +19,6 @@
   # Use the latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # TODO machine-specific config
-  # Use the systemd-boot EFI boot loader.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
 
@@ -120,14 +115,6 @@
   # Needed to install NVIDIA drivers
   nixpkgs.config.allowUnfree = true;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.11"; # Did you read the comment?
-
   services.syncthing = {
     enable = true;
 
@@ -138,7 +125,6 @@
       "casual-gator"   = { id = "CJMWOSW-VBZCFUL-ARN7LPD-SNZWWRM-IBZHZZA-EBBXZZV-FM4HEPJ-63DAZA5"; };
       "content-pigeon" = { id = "JMWSW2I-4ZR65J2-2Y72NYU-EVOEBOC-D7623KK-TDRAHSF-JP7RZRP-4VVVYQ5"; };
       "macbook"        = { id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ"; };
-      "thinkpad"       = { id = "4Z7BDDH-BQCU2WL-S2H3APJ-2S5MVLQ-PZU2SOB-7OJQRSC-AUMQLSI-UHXLOAM"; autoAcceptFolders = true; };
       "macbook-pro"    = { id = "OZWTJVP-WYWYMZE-JBX7IY4-V52W42E-66HTYPO-C7IDAC3-WG3F6AR-WJHBCQR"; autoAcceptFolders = true; };
       "MI9"            = { id = "VZ6WQZ4-IPLJA7R-OYNX4KB-WIHB256-NU5LLV5-IM2NPTV-DFC5UZG-VWWLLQK"; autoAcceptFolders = true; };
     };
