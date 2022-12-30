@@ -12,17 +12,24 @@
       ../../graphical.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      # Use the systemd-boot EFI boot loader.
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
 
-  # host(thinkpad): enable crypt device
-  boot.initrd.luks.devices = {
-    cryptroot = {
-      device = "/dev/disk/by-uuid/474ecb17-d327-4404-8ccc-322016baa0c2";
-      preLVM = true;
+    initrd = {
+      luks.devices = {
+        cryptroot = {
+	  device = "/dev/disk/by-uuid/474ecb17-d327-4404-8ccc-322016baa0c2";
+	  preLVM = true;
+	};
+      };
     };
   };
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   networking.hostName = "thinkpad"; # Define your hostname.
   # Pick only one of the below networking options.
