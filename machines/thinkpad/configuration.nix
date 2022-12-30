@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -13,6 +13,10 @@
     ];
 
   boot = {
+    # MST is broken in 6.1:
+    # https://gitlab.freedesktop.org/drm/amd/-/issues/2171
+    kernelPackages = lib.mkForce pkgs.linuxPackages_6_0;
+
     loader = {
       # Use the systemd-boot EFI boot loader.
       systemd-boot.enable = true;
@@ -28,8 +32,6 @@
       };
     };
   };
-
-  services.xserver.videoDrivers = [ "amdgpu" ];
 
   networking.hostName = "thinkpad"; # Define your hostname.
   # Pick only one of the below networking options.
