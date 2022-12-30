@@ -27,7 +27,7 @@
   networking.hostName = "thinkpad"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
