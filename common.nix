@@ -58,10 +58,10 @@
     ];
 
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGPC0FZMTGMMkXurkSXD9Pgng8quo12QAZPFUV5lLmTC borgio@manjaropad"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ66QbvxQYP+BiN2AVZfJ4SbCZkajDKpqWJYPDTpiFKt termux@mi9"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWMViPgAGd1wSRb8fOJHMBcVo/uTw4OcQwI0hx0mupr borgoat@macbook"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+HQ9MPR83svLzu43870/0HfYMGVMo2kXls9r4sEL8N borgoat@Giorgios-MacBook-Pro.local"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHo8y5eHe0kM92pPHy01MvZNSdIzgQsPO3xMqGDp5EhD borgoat@thinkpad"
     ];
   };
 
