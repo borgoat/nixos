@@ -12,10 +12,12 @@
       ../../graphical.nix
     ];
 
+  programs.wireshark.enable = true;
+
   boot = {
     # MST is broken in 6.1:
     # https://gitlab.freedesktop.org/drm/amd/-/issues/2171
-    kernelPackages = lib.mkForce pkgs.linuxPackages_6_0;
+    # kernelPackages = lib.mkForce pkgs.linuxPackages_6_0;
 
     loader = {
       # Use the systemd-boot EFI boot loader.
