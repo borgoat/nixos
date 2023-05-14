@@ -103,7 +103,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    passwordAuthentication = false;
+    settings.PasswordAuthentication = false;
   };
 
   # Open ports in the firewall.
@@ -126,7 +126,7 @@
       "content-pigeon" = { id = "JMWSW2I-4ZR65J2-2Y72NYU-EVOEBOC-D7623KK-TDRAHSF-JP7RZRP-4VVVYQ5"; };
       "macbook"        = { id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ"; };
       "macbook-pro"    = { id = "OZWTJVP-WYWYMZE-JBX7IY4-V52W42E-66HTYPO-C7IDAC3-WG3F6AR-WJHBCQR"; autoAcceptFolders = true; };
-      "MI9"            = { id = "VZ6WQZ4-IPLJA7R-OYNX4KB-WIHB256-NU5LLV5-IM2NPTV-DFC5UZG-VWWLLQK"; autoAcceptFolders = true; };
+      "MI9"            = { id = "22AXUSZ-LST4ZNF-B3YKO57-3XZDJ5B-5R6QGA2-6UY5JDN-HKKKZYG-CNBLRQG"; autoAcceptFolders = true; };
     };
   };
 

@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../common.nix
       ../../graphical.nix
+      ../../workstation.nix
     ];
 
   programs.wireshark.enable = true;

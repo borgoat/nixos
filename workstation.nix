@@ -10,25 +10,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     android-tools
-    android-studio
-    gimp
-    inkscape
-    jetbrains.clion
-    jetbrains.goland
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
-    jetbrains.webstorm
-    libreoffice-fresh
-    lutris
-    scribus
-    signal-desktop
-    teams
-    zoom-us
+    gh
   ];
 
   programs.adb.enable = true;
-
-  services.lorri.enable = true;
 
   virtualisation = {
     libvirtd.enable = true;
@@ -37,7 +22,6 @@
       enableOnBoot = false;
     };
   };
-
 
 }
 
