@@ -11,6 +11,7 @@
   environment.systemPackages = with pkgs; [
     android-tools
     gh
+    steam-run
   ];
 
   programs.adb.enable = true;

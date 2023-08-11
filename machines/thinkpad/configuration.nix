@@ -13,7 +13,7 @@
       ../../workstation.nix
     ];
 
-  programs.wireshark.enable = true;
+  # programs.wireshark.enable = true;
 
   boot = {
     # MST is broken in 6.1:
