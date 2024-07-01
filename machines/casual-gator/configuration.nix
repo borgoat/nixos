@@ -28,12 +28,14 @@
   # We do not worry about plugging disks into the wrong machine because
   # we will never exchange disks between machines, so we tell mdadm to
   # ignore the homehost entirely.
-  environment.etc."mdadm.conf".text = ''
-    HOMEHOST <ignore>
-  '';
+  # environment.etc."mdadm.conf".text = ''
+  #  HOMEHOST <ignore>
+  # '';
   # The RAIDs are assembled in stage1, so we need to make the config
   # available there.
-  boot.initrd.services.swraid.mdadmConf = config.environment.etc."mdadm.conf".text;
+  boot.swraid.mdadmConf = ''
+    HOMEHOST <ignore>
+  '';
 
   services.paperless.enable = true;
 
