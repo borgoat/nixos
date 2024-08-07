@@ -37,7 +37,13 @@
     HOMEHOST <ignore>
   '';
 
-  services.paperless.enable = true;
+  services.paperless = {
+    enable = true;
+    address = "192.168.199.2";
+    settings = {
+      PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE = "true";
+    };
+  };
 
   services.jellyfin.enable = true;
 
@@ -73,6 +79,7 @@
 
       allowedTCPPorts = [
         8096   # Jellyfin
+        28981  # Paperless
       ];
 
       allowedUDPPorts = [
