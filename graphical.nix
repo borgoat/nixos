@@ -14,7 +14,7 @@
     desktopManager.gnome.enable = true;
 
     # Keyboards
-    layout = "us,it";
+    xkb.layout = "us,it";
   };
 
   # Enable CUPS to print documents.
@@ -24,7 +24,6 @@
   };
 
   # Enable sound.
-  sound.enable = false;
   hardware.pulseaudio.enable = false;
 
   # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
@@ -47,13 +46,13 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     firefox
-    gnome3.gnome-tweaks
+    gnome-tweaks
     gnomeExtensions.espresso
     keepassxc
   ];
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       corefonts
       fira-code
       fira-code-symbols
