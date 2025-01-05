@@ -42,22 +42,9 @@
       init = {
         defaultBranch = "main";
       };
+
+      credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
     };
-
-    includes = [
-      {
-        condition = "gitdir:~/Workspace/*/yeekatee/";
-        contents = {
-          user = {
-            email = "giorgio.azzinnaro@yeekatee.com";
-          };
-
-          core = {
-            sshCommand = "ssh -i ~/.ssh/id_ed25519-yeekatee";
-          };
-        };
-      }
-    ];
   };
 
   # TODO Understand how to manage extensions: https://nixos.wiki/wiki/Visual_Studio_Code
