@@ -24,7 +24,7 @@
   };
 
   # Enable sound.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
   # rtkit is optional but recommended

@@ -95,6 +95,9 @@
     ];
   };
 
+  # A nice text editor
+  programs.helix.enable = true;
+
   # A fast cd command that learns your habits
   programs.zoxide.enable = true;
 
