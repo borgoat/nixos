@@ -11,6 +11,7 @@
   environment.systemPackages = with pkgs; [
     android-tools
     gh
+    ghostty
   ];
 
   programs.adb.enable = true;
