@@ -59,9 +59,18 @@
     enable = true;
     plugins = with pkgs.fishPlugins; [
       # Colorized command output
-      { name = "git-abbr"; src = git-abbr.src; }
-      { name = "grc"; src = grc.src; }
-      { name = "tide"; src = tide.src; }
+      {
+        name = "git-abbr";
+        src = git-abbr.src;
+      }
+      {
+        name = "grc";
+        src = grc.src;
+      }
+      {
+        name = "tide";
+        src = tide.src;
+      }
     ];
   };
 
@@ -93,11 +102,10 @@
   programs.bottom.enable = true;
 
   programs.direnv.enable = true;
-  
+
   # programs.go = {
   #   enable = true;
   #   package = pkgs.go_1_18;
   # };
 
 }
-

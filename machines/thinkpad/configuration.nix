@@ -2,16 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../common.nix
-      ../../graphical.nix
-      ../../workstation.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../common.nix
+    ../../graphical.nix
+    ../../workstation.nix
+  ];
 
   # programs.wireshark.enable = true;
 
@@ -29,9 +34,9 @@
     initrd = {
       luks.devices = {
         cryptroot = {
-	  device = "/dev/disk/by-uuid/474ecb17-d327-4404-8ccc-322016baa0c2";
-	  preLVM = true;
-	};
+          device = "/dev/disk/by-uuid/474ecb17-d327-4404-8ccc-322016baa0c2";
+          preLVM = true;
+        };
       };
     };
   };
@@ -39,7 +44,7 @@
   networking.hostName = "thinkpad"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   networking.networkmanager.wifi.powersave = true;
 
   # https://nixos.wiki/wiki/Laptop
@@ -56,4 +61,3 @@
   system.stateVersion = "22.11"; # Did you read the comment?
 
 }
-

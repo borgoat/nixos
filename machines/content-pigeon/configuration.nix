@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ../../common.nix
@@ -20,7 +21,6 @@
       trustedInterfaces = [ "wg0" ];
     };
 
-
     wireguard.interfaces = {
       wg0 = {
         ips = [ "192.168.199.1/32" ];
@@ -29,14 +29,16 @@
         privateKeyFile = "/root/wg-keys/private";
 
         peers = [
-          { # casual-gator
-	    endpoint = "138.201.87.57:51820";
+          {
+            # casual-gator
+            endpoint = "138.201.87.57:51820";
             publicKey = "xwJ9i5RSkTEs4pBISHTe1xnvTX2x7rVFmK8kAyXOmxk=";
             allowedIPs = [
               "192.168.199.2/32"
             ];
           }
-          { # Mikrotik Pumiro
+          {
+            # Mikrotik Pumiro
             publicKey = "qSpmTq/LUQMclxY0EXULYkYYr0pYldOYp2KYCuecg38=";
             allowedIPs = [
               "192.168.199.9/32"
@@ -44,7 +46,8 @@
             ];
             persistentKeepalive = 25;
           }
-          { # Mikrotik Olgiate
+          {
+            # Mikrotik Olgiate
             publicKey = "xmRwxwC8DJgyLH6DXnrMfWnpVxn3hA73mocTUMQZriY=";
             allowedIPs = [
               "192.168.199.8/32"
@@ -69,4 +72,3 @@
   system.stateVersion = "21.11"; # Did you read the comment?
 
 }
-

@@ -5,12 +5,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../common.nix
-      ../../graphical.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../common.nix
+    ../../graphical.nix
+  ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -21,4 +21,3 @@
 
   networking.interfaces.enp0s10.useDHCP = true;
 }
-

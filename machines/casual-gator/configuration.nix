@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../common.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../common.nix
+  ];
 
   # Use GRUB2 as the boot loader.
   # We don't use systemd-boot because Hetzner uses BIOS legacy boot.
@@ -13,7 +13,10 @@
   boot.loader.grub = {
     enable = true;
     efiSupport = false;
-    devices = [ "/dev/sda" "/dev/sdb" ];
+    devices = [
+      "/dev/sda"
+      "/dev/sdb"
+    ];
   };
 
   # The mdadm RAID1s were created with 'mdadm --create ... --homehost=hetzner',
@@ -65,7 +68,10 @@
       }
     ];
     defaultGateway = "138.201.87.1";
-    defaultGateway6 = { address = "fe80::1"; interface = "enp0s31f6"; };
+    defaultGateway6 = {
+      address = "fe80::1";
+      interface = "enp0s31f6";
+    };
     nameservers = [ "8.8.8.8" ];
 
     nat = {
@@ -78,14 +84,14 @@
       checkReversePath = "loose"; # for tailscale exit node
 
       allowedTCPPorts = [
-        8096   # Jellyfin
-        28981  # Paperless
+        8096 # Jellyfin
+        28981 # Paperless
       ];
 
       allowedUDPPorts = [
-        1900   # Jellyfin
-        7359   # Jellyfin
-	51820  # Wireguard
+        1900 # Jellyfin
+        7359 # Jellyfin
+        51820 # Wireguard
       ];
 
       trustedInterfaces = [ "wg0" ];
@@ -99,14 +105,16 @@
         privateKeyFile = "/root/wg-keys/private";
 
         peers = [
-          { # content-pigeon
-	    endpoint = "152.67.65.64:51820";
+          {
+            # content-pigeon
+            endpoint = "152.67.65.64:51820";
             publicKey = "21z7T6a7DQbD8U8BA4phb+8qzOclEe8AeHZVtdJJAEQ=";
             allowedIPs = [
               "192.168.199.1/32"
             ];
           }
-          { # Mikrotik Pumiro
+          {
+            # Mikrotik Pumiro
             publicKey = "qSpmTq/LUQMclxY0EXULYkYYr0pYldOYp2KYCuecg38=";
             allowedIPs = [
               "192.168.199.9/32"
@@ -114,7 +122,8 @@
             ];
             persistentKeepalive = 25;
           }
-          { # Mikrotik Olgiate
+          {
+            # Mikrotik Olgiate
             publicKey = "xmRwxwC8DJgyLH6DXnrMfWnpVxn3hA73mocTUMQZriY=";
             allowedIPs = [
               "192.168.199.8/32"
