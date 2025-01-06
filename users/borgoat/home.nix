@@ -1,10 +1,18 @@
-{ config, pkgs, ... }:
+# graphical is our extraSpecialArg that we pass to home-manager, false by default
+{
+  config,
+  pkgs,
+  graphical,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "borgoat";
-  home.homeDirectory = "/home/borgoat";
+  home = rec {
+    username = "borgoat";
+    homeDirectory = "/home/${username}";
+  };
 
   # Packages that should be installed to the user profile.
   # home.packages = with pkgs; [];
@@ -47,8 +55,19 @@
     };
   };
 
-  # TODO Understand how to manage extensions: https://nixos.wiki/wiki/Visual_Studio_Code
-  # programs.vscode.enable = true;
+  programs.vscode =
+    if graphical then
+      {
+        enable = true;
+        extensions = with pkgs.vscode-extensions; [
+          jnoortheen.nix-ide
+          vscodevim.vim
+        ];
+      }
+    else
+      {
+        enable = false;
+      };
 
   programs.zellij = {
     enable = true;
@@ -75,7 +94,15 @@
   };
 
   # A nice text editor
-  programs.helix.enable = true;
+  programs.helix = {
+    enable = true;
+    languages.language = [
+      {
+        name = "nix";
+        auto-format = true;
+      }
+    ];
+  };
 
   # A fast cd command that learns your habits
   programs.zoxide.enable = true;

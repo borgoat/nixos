@@ -4,7 +4,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../common.nix
+    ../common.nix
   ];
 
   # Use GRUB2 as the boot loader.

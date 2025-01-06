@@ -13,9 +13,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../common.nix
-    ../../graphical.nix
-    ../../workstation.nix
+    ../common.nix
+    ../graphical.nix
+    ../workstation.nix
   ];
 
   # programs.wireshark.enable = true;
