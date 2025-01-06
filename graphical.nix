@@ -48,6 +48,7 @@
     firefox
     gnome-tweaks
     gnomeExtensions.espresso
+    google-chrome
     keepassxc
   ];
 
