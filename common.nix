@@ -74,7 +74,9 @@
     du-dust # A more intuitive version of du in rust
     duf # A better df alternative
     file # A program that shows the type of files
+    fishPlugins.git-abbr
     fishPlugins.grc
+    fishPlugins.tide
     git
     grc
     hexyl # A command-line hex viewer
