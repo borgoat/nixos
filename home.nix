@@ -50,35 +50,16 @@
   # TODO Understand how to manage extensions: https://nixos.wiki/wiki/Visual_Studio_Code
   # programs.vscode.enable = true;
 
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-    terminal = "screen-256color";
-    sensibleOnTop = true;
-  };
-
   programs.zellij = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
-  programs.zsh = {
+  programs.fish = {
     enable = true;
-
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
-      ];
-    };
-
-    plugins = [
-      {
-        name = "powerlevel10k-config";
-        src = pkgs.lib.cleanSource ./zsh;
-        file = "p10k.zsh";
-      }
+    plugins = with pkgs.fishPlugins; [
+      # Colorized command output
+      { name = "grc"; src = grc.src; }
     ];
   };
 

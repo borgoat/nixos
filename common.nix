@@ -8,13 +8,16 @@
   nix = {
     package = pkgs.nixVersions.latest;
 
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
     gc = {
       automatic = true;
       dates = "weekly";
     };
-   };
+  };
 
   # Use the latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -48,10 +51,9 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.borgoat = {
     isNormalUser = true;
-    shell = pkgs.zsh;
     extraGroups = [
-      "wheel"      # Enable ‘sudo’ for the user.
-      "syncthing"  # Allow using syncthing.
+      "wheel" # Enable ‘sudo’ for the user.
+      "syncthing" # Allow using syncthing.
       "docker"
       "libvirtd"
       "adbusers"
@@ -69,11 +71,15 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     dogdns
-    du-dust  # A more intuitive version of du in rust
-    duf  # A better df alternative
-    file  # A program that shows the type of files
+    du-dust # A more intuitive version of du in rust
+    duf # A better df alternative
+    file # A program that shows the type of files
+    fishPlugins.grc
     git
-    hexyl  # A command-line hex viewer
+    grc
+    hexyl # A command-line hex viewer
+    nixd # Nix LSP
+    nixfmt-rfc-style
     wireguard-tools
   ];
 
@@ -96,7 +102,17 @@
   #   enableSSHSupport = true;
   # };
 
-  programs.zsh.enable = true;
+  programs.bash = {
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+          shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+        fi
+    '';
+  };
+
+  programs.fish.enable = true;
 
   # List services that you want to enable:
 
@@ -122,11 +138,23 @@
     configDir = "/home/borgoat/.config/syncthing";
 
     settings.devices = {
-      "casual-gator"   = { id = "CJMWOSW-VBZCFUL-ARN7LPD-SNZWWRM-IBZHZZA-EBBXZZV-FM4HEPJ-63DAZA5"; };
-      "content-pigeon" = { id = "JMWSW2I-4ZR65J2-2Y72NYU-EVOEBOC-D7623KK-TDRAHSF-JP7RZRP-4VVVYQ5"; };
-      "macbook"        = { id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ"; };
-      "macbook-pro"    = { id = "OZWTJVP-WYWYMZE-JBX7IY4-V52W42E-66HTYPO-C7IDAC3-WG3F6AR-WJHBCQR"; autoAcceptFolders = true; };
-      "MI9"            = { id = "22AXUSZ-LST4ZNF-B3YKO57-3XZDJ5B-5R6QGA2-6UY5JDN-HKKKZYG-CNBLRQG"; autoAcceptFolders = true; };
+      "casual-gator" = {
+        id = "CJMWOSW-VBZCFUL-ARN7LPD-SNZWWRM-IBZHZZA-EBBXZZV-FM4HEPJ-63DAZA5";
+      };
+      "content-pigeon" = {
+        id = "JMWSW2I-4ZR65J2-2Y72NYU-EVOEBOC-D7623KK-TDRAHSF-JP7RZRP-4VVVYQ5";
+      };
+      "macbook" = {
+        id = "IW3YYMX-AWOW265-73IQGYI-BZZUU52-CLKBKOT-B4JEDZQ-S6J7JQ4-PGL5RAJ";
+      };
+      "macbook-pro" = {
+        id = "OZWTJVP-WYWYMZE-JBX7IY4-V52W42E-66HTYPO-C7IDAC3-WG3F6AR-WJHBCQR";
+        autoAcceptFolders = true;
+      };
+      "MI9" = {
+        id = "22AXUSZ-LST4ZNF-B3YKO57-3XZDJ5B-5R6QGA2-6UY5JDN-HKKKZYG-CNBLRQG";
+        autoAcceptFolders = true;
+      };
     };
   };
 
@@ -137,14 +165,13 @@
     trustedInterfaces = [ "tailscale0" ];
 
     allowedTCPPorts = [
-      22000  # Syncthing
+      22000 # Syncthing
     ];
 
     allowedUDPPorts = [
-      22000  # Syncthing
+      22000 # Syncthing
     ];
   };
 
   services.tailscale.enable = true;
 }
-
