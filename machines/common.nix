@@ -17,6 +17,11 @@
       automatic = true;
       dates = "weekly";
     };
+
+    # For devenv/cachix
+    extraOptions = ''
+      trusted-users = root borgoat
+    '';
   };
 
   # Use the latest kernel

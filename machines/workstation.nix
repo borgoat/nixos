@@ -9,10 +9,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    android-studio
     android-tools
+    devenv
     gh
     ghostty
+    inkscape
   ];
 
   programs.adb.enable = true;
