@@ -14,6 +14,7 @@
     gh
     ghostty
     inkscape
+    protonvpn-gui
   ];
 
   programs.adb.enable = true;
