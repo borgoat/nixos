@@ -46,8 +46,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     firefox
+    foliate
     gnome-tweaks
-    gnomeExtensions.espresso
+    # gnomeExtensions.espresso  # It seems the current version (10) is not compatible with GNOME 47.3
     google-chrome
     keepassxc
   ];
