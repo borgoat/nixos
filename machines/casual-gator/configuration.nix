@@ -5,6 +5,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../common.nix
+    ../ai.nix
   ];
 
   # Use GRUB2 as the boot loader.
