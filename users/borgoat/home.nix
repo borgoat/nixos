@@ -96,12 +96,35 @@
   # A nice text editor
   programs.helix = {
     enable = true;
-    languages.language = [
-      {
-        name = "nix";
-        auto-format = true;
-      }
-    ];
+    languages = {
+
+      language = [
+        {
+          name = "nix";
+          auto-format = true;
+        }
+        {
+          name = "python";
+          roots = [ "pyproject.toml" ];
+          auto-format = true;
+          language-servers = [
+            "pyright"
+            "ruff"
+          ];
+        }
+
+      ];
+      language-server = {
+        pyright = {
+          command = "${pkgs.pyright}/bin/pyright-langserver";
+          args = [ "--stdio" ];
+          config = { };
+        };
+        ruff = {
+          command = "${pkgs.ruff}/bin/ruff";
+        };
+      };
+    };
   };
 
   # A fast cd command that learns your habits
