@@ -16,6 +16,7 @@
     ../common.nix
     ../graphical.nix
     ../workstation.nix
+    ../ai.nix
   ];
 
   # programs.wireshark.enable = true;
