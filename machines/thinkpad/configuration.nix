@@ -16,7 +16,6 @@
     ../common.nix
     ../graphical.nix
     ../workstation.nix
-    ../ai.nix
   ];
 
   # programs.wireshark.enable = true;
@@ -40,7 +39,13 @@
         };
       };
     };
+
+    # TODO Should reuse elsewhere?
+    tmp.useTmpfs = true;
   };
+
+  # TODO Should use home manager
+  users.users.daniela.isNormalUser = true;
 
   networking.hostName = "thinkpad"; # Define your hostname.
   # Pick only one of the below networking options.
