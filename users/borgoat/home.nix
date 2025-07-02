@@ -133,7 +133,7 @@
   # The next gen ls command
   programs.lsd = {
     enable = true;
-    enableAliases = true;
+    enableFishIntegration = true;
   };
 
   # A cat(1) clone with syntax highlighting and Git integration
