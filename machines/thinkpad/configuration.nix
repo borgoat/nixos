@@ -44,9 +44,6 @@
     tmp.useTmpfs = true;
   };
 
-  # TODO Should use home manager
-  users.users.daniela.isNormalUser = true;
-
   networking.hostName = "thinkpad"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
