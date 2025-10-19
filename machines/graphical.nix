@@ -9,19 +9,19 @@
   services.xserver = {
     enable = true;
 
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome = {
-      enable = true;
-
-      extraGSettingsOverrides = ''
-        [org.gnome.mutter]
-        experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
-      '';
-    };
-
     # Keyboards
     xkb.layout = "us,it";
+  };
+
+  # Enable the GNOME Desktop Environment.
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome = {
+    enable = true;
+
+    extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
+    '';
   };
 
   # Enable CUPS to print documents.
